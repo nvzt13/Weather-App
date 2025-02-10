@@ -17,9 +17,11 @@ export default function Hours({ hours }: HoursProps) {
                 </div>
                 <div className="icon-container my-2">
                   <Image
-                    src={hour.icon}
+                    src={`https:${hour.icon}`}
                     alt="Weather Icon"
                     className="w-12 h-12 rounded-full border-2 border-blue-400 p-2 transition-transform duration-300 hover:scale-110"
+                    width={40}
+                    height={40}
                   />
                 </div>
                 <p className="degree text-xl font-semibold text-blue-500">{hour.temp}°C</p>
