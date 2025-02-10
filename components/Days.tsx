@@ -1,17 +1,28 @@
-import { WiDegrees } from "react-icons/wi";
+import { DaysProps } from "@/type/types";
+import Image from "next/image";
 
-export default function Days({ days }) {
+// Function to get the day name from the date
+const getDayName = (dateString: string): string => {
+  const date = new Date(dateString);
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  return dayNames[date.getDay()]; 
+};
+
+export default function Days({ days }: DaysProps) {
   return (
     <section className="days bg-gradient-to-b from-blue-500 to-blue-700 p-6 rounded-lg shadow-lg mx-auto">
       <div className="flex items-center justify-center flex-col h-full space-y-6">
         {days.map((day, index) => (
-          <div key={index} className="day flex items-center justify-around w-full bg-white p-4 rounded-lg shadow-md">
-            <p className="text-gray-700 font-semibold">{day.date}</p>
-            <img src={day.icon} alt="weather condition" className="w-10 h-10" />
-            <p className="text-gray-700">{day.condition}</p>
-            <p className="text-gray-700">{day.maxTemp}°C</p>
-            <WiDegrees className="text-blue-500 text-3xl" />
-            <p className="text-gray-500">{day.minTemp}°C</p>
+          <div key={index} className="day flex items-center justify-between w-full bg-white p-4 rounded-lg shadow-md pe-8">
+            <p className="text-gray-700 sm:w-12  font-semibold">{getDayName(day.date)}</p>
+            <Image width={40} height={40} src={`https:${day.icon}`} alt="weather condition" className="w-10 h-10" />
+            <p className="text-gray-700">{Math.floor(day.maxTemp)}°C</p>
+            <div className="relative w-1/3 h-2 bg-gradient-to-r from-red-500 to-blue-300 rounded-full">
+              <div
+                className={`absolute top-0 left-0 h-full bg-red-500 rounded-full`}
+              />
+            </div>
+            <p className="text-gray-500">{Math.floor(day.minTemp)}°C</p>
           </div>
         ))}
       </div>

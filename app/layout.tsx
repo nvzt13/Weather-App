@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +30,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} text-black font-sans`}
       >
+        <Image
+                src="https://img.freepik.com/premium-vector/sky-clouds-design-with-flat-cartoon-poster-flyers-postcards-web-banners_771576-58.jpg?semt=ais_hybrid"
+                width={800}
+                height={600}
+                alt="Sky background for video conferencing"
+                className="fixed w-full h-screen bg-cover z-0"
+              />
+        <Header />
+
         {children}
+        <Footer />
       </body>
     </html>
   );

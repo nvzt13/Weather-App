@@ -1,28 +1,31 @@
-export default function Hours({ hours }) {
+import { HoursProps } from "@/type/types";
+import Image from "next/image";
+export default function Hours({ hours }: HoursProps) {
   return (
-    <section className="main bg-gradient-to-b from-blue-500 to-blue-700 text-white p-6 rounded-lg shadow-lg mx-auto">
-      <div className="flex items-center justify-center flex-col space-y-6">
-        <div className="description text-center">
-          <p className="text-lg font-medium leading-relaxed">
-            Yakınlık (Proximity) İlkesi: Nesneler birbirine ne kadar yakınsa, bir grup olarak algılanma olasılıkları o kadar yüksektir.
-          </p>
-        </div>
-
-        <div className="hours flex overflow-auto w-full gap-4">
-          {hours.map((hour, index) => (
-            <div
-              key={index}
-              className="hour flex flex-col items-center justify-center bg-white text-gray-800 p-4 rounded-lg shadow-md"
-            >
-              <div className="day text-lg font-bold">
-  {new Date(hour.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-</div>
-              <i className="text-blue-500 text-3xl">
-                <img src={hour.icon} alt="Weather Icon" className="w-10 h-10" />
-              </i>
-              <p className="degree text-lg">{hour.temp}°C</p>
-            </div>
-          ))}
+    <section className="main bg-gradient-to-b from-blue-500 to-blue-700 text-white p-8 rounded-lg shadow-lg mx-auto">
+      <div className="flex items-center justify-center flex-col space-y-8">
+        <h2 className="text-3xl font-bold text-center">Hourly Forecast</h2>
+        <div className="hours-container flex overflow-x-auto w-full gap-6 p-4">
+          <div className="hours flex gap-6 p-4">
+            {hours.map((hour, index) => (
+              <div
+                key={index}
+                className="hour flex flex-col items-center justify-center bg-white text-gray-800 p-6 rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+              >
+                <div className="day text-xl font-semibold text-gray-700">
+                  {new Date(hour.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                </div>
+                <div className="icon-container my-2">
+                  <Image
+                    src={hour.icon}
+                    alt="Weather Icon"
+                    className="w-12 h-12 rounded-full border-2 border-blue-400 p-2 transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+                <p className="degree text-xl font-semibold text-blue-500">{hour.temp}°C</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,16 +1,21 @@
-import { WiDegrees } from "react-icons/wi";
+import React from 'react';
 
-export default function Header({name, degree, feelslike}) {
+const Header = () => {
   return (
-    <section className="header bg-gradient-to-r from-blue-600 to-blue-400 text-white p-6 rounded-lg shadow-lg mx-auto">
-      <div className="flex items-center justify-center flex-col h-80 space-y-4">
-        <h2 className="text-4xl font-bold tracking-wide">{name}</h2>
-        <div className="flex items-center relative">
-          <h1 className="text-7xl font-extrabold">{degree}</h1>
-          <WiDegrees className="text-[120px] absolute -right-14 top-[-20px] text-white opacity-80" />
+    <header className="bg-blue-500 p-4 shadow-lg z-50 fixed w-full">
+      <div className="container mx-auto flex justify-between items-center">
+        {/* Logo Section */}
+        <div className="flex items-center space-x-3">
+          <span className="text-white font-bold text-xl">Nevzat Atlay</span>
         </div>
-        <p className="text-xl italic">{feelslike}</p>
+
+        {/* Weather App Title */}
+        <h3 className="text-3xl font-extrabold text-white tracking-wider uppercase">
+          Weather App
+        </h3>
       </div>
-    </section>
+    </header>
   );
-}
+};
+
+export default Header;
