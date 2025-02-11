@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     const fetchWeatherData = async () => {
       try {
-        const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
+        const apiKey = "cc484c798f974ef1be843345250302";
         const BASE_URL = "https://api.weatherapi.com/v1";
         const response = await fetch(
           `${BASE_URL}/forecast.json?key=${apiKey}&q=Bitlis&days=7&aqi=no&alerts=no`
