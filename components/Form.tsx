@@ -62,13 +62,8 @@ export default function Form({ onDataSubmit }: FormProps) {
   };
 
   return (
-    <div className="flex justify-center items-center bg-gradient-to-b from-blue-500 to-blue-700 p-24">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md transition-transform transform hover:scale-105 duration-300">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="city" className="block text-gray-700 text-sm font-semibold mb-2">
-              City Name
-            </label>
             <input
               type="text"
               id="city"
@@ -87,14 +82,11 @@ export default function Form({ onDataSubmit }: FormProps) {
           >
             {loading ? <Loader2Icon className='animate-spin mx-auto' /> : 'Search'}
           </button>
-        </form>
-
         {error && (
           <p className="mt-4 text-red-500 text-center">
             {error}
           </p>
         )}
-      </div>
-    </div>
+        </form>
   );
 }

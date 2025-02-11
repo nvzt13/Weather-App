@@ -2,7 +2,7 @@ import { HoursProps } from "@/type/types";
 import Image from "next/image";
 export default function Hours({ hours }: HoursProps) {
   return (
-    <section className="main bg-gradient-to-b from-blue-500 to-blue-700 text-white p-8 rounded-lg shadow-lg mx-auto">
+    <section className="text-white p-8 rounded-lg bg-sky-400 opacity-80 mx-auto">
       <div className="flex items-center justify-center flex-col space-y-8">
         <h2 className="text-3xl font-bold text-center">Hourly Forecast</h2>
         <div className="hours-container flex overflow-x-auto w-full gap-6 p-4">

@@ -10,7 +10,8 @@ const getDayName = (dateString: string): string => {
 
 export default function Days({ days }: DaysProps) {
   return (
-    <section className="days bg-gradient-to-b from-blue-500 to-blue-700 p-6 rounded-lg shadow-lg mx-auto">
+    <section className=" p-8 rounded-lg mx-auto my-12 bg-sky-400 opacity-80">
+      <h3 className="text-3xl font-bold text-center text-white my-12">Days Forecast</h3>
       <div className="flex items-center justify-center flex-col h-full space-y-6">
         {days.map((day, index) => (
           <div key={index} className="day flex items-center justify-between w-full bg-white p-4 rounded-lg shadow-md pe-8">

@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Hours from "@/components/Hours";
 import Days from "@/components/Days";
-import Form from "@/components/Form";
 import { Loader2 } from "lucide-react";
 import { WeatherData } from "@/type/types"; 
 import Current from "@/components/Current";
@@ -62,12 +61,10 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen max-w-2xl mx-auto mb-32">
-      <div className="relative z-10">
-        <Form onDataSubmit={handleDataSubmit} />
-
+    <div className="max-w-2xl mx-auto my-28">
+      <div className="z-10">
         {loading ? (
-          <div className="flex justify-center items-center min-h-screen">
+          <div className="flex justify-center items-center">
             <Loader2 className="animate-spin text-white h-10 w-10" />
           </div>
         ) : weatherData ? (
@@ -75,7 +72,8 @@ export default function Home() {
             <Current
               name={weatherData.location.name}
               degree={weatherData.current.temp_c}
-              test={weatherData.current.condition.text}
+              text={weatherData.current.condition.text}
+              onDataSubmit={handleDataSubmit}
             />
             <Hours hours={weatherData.hours} />
             <Days days={weatherData.days} />

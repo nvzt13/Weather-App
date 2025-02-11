@@ -27,6 +27,12 @@ export type WeatherData = {
 export interface FormProps {
   onDataSubmit: (data: WeatherData) => void;
 }
+export interface CurrentProps {
+  name: string;
+  degree: number;
+  text: string;
+  onDataSubmit: (data: WeatherData) => void;
+}
 export interface HeaderProps {
   name: string;
   degree: number;

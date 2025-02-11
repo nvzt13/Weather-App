@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,20 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} text-black font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} text-black font-sans flex flex-col relative min-h-screen`}
       >
-        <Image
-                src="https://img.freepik.com/premium-vector/sky-clouds-design-with-flat-cartoon-poster-flyers-postcards-web-banners_771576-58.jpg?semt=ais_hybrid"
-                width={800}
-                height={600}
-                alt="Sky background for video conferencing"
-                className="fixed w-full h-screen bg-cover z-0"
-              />
+        <div className="bg-custom-sun bg-cover sky "></div>
         <Header />
-
-        {children}
+        <main className="w-full h-full flex-grow" >{children}</main>
         <Footer />
       </body>
     </html>

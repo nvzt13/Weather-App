@@ -1,18 +1,17 @@
 import { WiDegrees } from "react-icons/wi";
-import { HeaderProps } from "@/type/types";
+import { CurrentProps } from "@/type/types";
+import Form from '@/components/Form';
 
-export default function Current({name, degree, test}: HeaderProps) {
+export default function Current({name, degree, text, onDataSubmit }: CurrentProps) {
   return (
-    <section className="header bg-gradient-to-r from-blue-600 to-blue-400 text-white p-6 rounded-lg shadow-lg mx-auto">
-      <div className="flex items-center justify-center flex-col h-80 space-y-4">
-        <h2 className="text-4xl font-bold tracking-wide">{name}</h2>
-        <div className="flex items-center relative">
-          <h1 className="text-7xl font-extrabold">{degree}</h1>
-          <WiDegrees className="text-[120px] absolute left-14 top-[-20px] text-white opacity-80" />
-        </div>
-        <p className="text-xl italic">{test}</p>
-        
+    <div className="flex items-center justify-evenly flex-col p-8 text-white rounded-lg mx-auto h-[500px]">
+      <h2 className="text-5xl font-bold tracking-wide drop-shadow-lg text-center">{name}</h2>
+      <div className="flex items-center relative">
+        <h1 className="text-6xl font-extrabold">{degree}</h1>
+        <WiDegrees className="text-[100px] absolute -right-16 -top-8 text-white opacity-80" />
       </div>
-    </section>
+      <p className="text-xl italic opacity-90 text-center">{text}</p>
+      <Form onDataSubmit={onDataSubmit} />
+    </div>
   );
 }

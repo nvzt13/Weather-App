@@ -13,7 +13,7 @@ export default {
         foreground: "var(--foreground)",
       },
       backgroundImage: {
-        'custom-sun': "url('/sun.jpg')", // Arka plan resmi burada tanımlandı
+        'custom-sun': "url('https://img.freepik.com/premium-vector/sky-clouds-design-with-flat-cartoon-poster-flyers-postcards-web-banners_771576-58.jpg?semt=ais_hybrid')", 
       },
     },
   },
