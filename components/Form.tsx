@@ -20,7 +20,7 @@ export default function Form({ onDataSubmit }: FormProps) {
 
     try {
       const apiKey = 'cc484c798f974ef1be843345250302';
-      const BASE_URL = 'http://api.weatherapi.com/v1';
+      const BASE_URL = 'https://api.weatherapi.com/v1';
       const response = await fetch(`${BASE_URL}/forecast.json?key=${apiKey}&q=${city}&days=7&aqi=no&alerts=no`);
 
       if (!response.ok) {
