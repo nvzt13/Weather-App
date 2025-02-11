@@ -6,7 +6,7 @@ First, run the development server:
 
 ```bash
 git clone https://github.com/nvzt13/Weather-App.git
-cd Countries-App
+cd Weather-App
 npm install
 npm run dev
 ```
